@@ -7,14 +7,55 @@
   <!-- <link th:rel="stylesheet" th:href=""> -->
   <!-- <script th:src="@{/js/bootstrap.min.js}"></script> -->
 </head>
-<body>
-<div class="container">
+<h1>รายการออเดอร์</h1>
 
-  <h1 class="text-green-500 text-5xl">Flower Management</h1>
+<!--<table class="table">-->
+<!--  <thead>-->
+<!--  <tr>-->
+<!--    <th>Order No</th>-->
+<!--    <th>Flower Type</th>-->
+<!--    <th>Amount</th>-->
+<!--    <th>Plant Status</th>-->
+<!--    <th>Order Method</th>-->
+<!--  </tr>-->
+<!--  </thead>-->
+<!--  <tbody id="invoiceTable">-->
+<!--  &lt;!&ndash; Sample rows for demonstration &ndash;&gt;-->
+<!--  <tr th:each="invoice : ${invoices}">-->
+<!--    <td th:text="${invoice.OID}"></td>-->
+<!--    <td th:text="${order.FName}"></td>-->
+<!--    <td th:text="${invoice.quantity}"></td>-->
+<!--    <td th:text="${invoice.status}"></td>-->
+<!--    <td th:text="${order.order_method}"></td>-->
+<!--    &lt;!&ndash;                            <td style="text-align: right" th:text="${#numbers.formatDecimal(order.price, 1, 'COMMA', 2, 'POINT')}">&ndash;&gt;-->
+<!--    &lt;!&ndash;                            </td>&ndash;&gt;-->
+<!--  </tr>-->
+<!--  &lt;!&ndash; Add more rows as needed &ndash;&gt;-->
+<!--  </tbody>-->
+<!--</table>-->
 
-  <p><span th:text="${greeting}"></span></p>
-  <button class="btn">Button</button>
+<label for="order_id">หมายเลขออเดอร์:</label>
+<!--<select class="form-control" id="order_id" name="OID" th:field="*{OID}" required>-->
+<!--  <option value="0">select option</option>-->
+<!--  <option th:each="option : ${options}" th:value="${option.getOID()}" th:text="${option.getOID()}"></option>-->
+<!--</select>-->
 
+<select id="order_id" name="order_id">
+  <option value="order1">1</option>
+  <option value="order2">2</option>
+  <!-- เพิ่มออเดอร์เพิ่มเติมตรงนี้ -->
+</select>
+
+<button id="confirmButton">ยืนยัน</button>
+
+<div id="summary">
+  <h2>สรุปรายการ</h2>
+  <p>หมายเลขออเดอร์: <span id="orderNumber"></span></p>
+  <p>ประเภทการสั่ง: <span id="orderType"></span></p>
+  <p>ชนิดดอกไม้: <span id="flowerType"></span></p>
+  <p>จำนวนดอกไม้: <span id="flowerCount"></span></p>
+  <p>ราคาสุทธิ: <span id="totalPrice"></span></p>
 </div>
-</body>
-</html>
+
+<script>
+</script>
