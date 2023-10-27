@@ -12,6 +12,7 @@ import java.util.UUID;
 
 @Data
 @Entity
+@Table(name = "Flower")
 public class Flower {
 
     private UUID id;
@@ -29,4 +30,14 @@ public class Flower {
 
     @OneToMany(mappedBy = "flower")
     private List<OrderFlower> orders = new ArrayList<>();
+
+    @Override
+    public String toString() {
+        return "Flower{" +
+                "FID=" + FID +
+                ", FName='" + FName + '\'' +
+                ", how_to_plant='" + how_to_plant + '\'' +
+                // Add other fields here
+                '}';
+    }
 }

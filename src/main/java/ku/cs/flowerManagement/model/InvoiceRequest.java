@@ -6,10 +6,9 @@ import ku.cs.flowerManagement.common.Status;
 import lombok.Data;
 
 @Data
-public class OrderFlowerRequest {
-
+public class InvoiceRequest {
     private int FID;
-    private int OID;
+    private String OID;
     private String FName;
     private double flowerPrice;
     private int orderQuantity;
@@ -17,5 +16,4 @@ public class OrderFlowerRequest {
     private OrderMethods order_method;
     private PlantStatus plant_status;
     private double price;
-
 }

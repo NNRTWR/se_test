@@ -1,3 +1,30 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="https://www.thymeleaf.org">-->
+<!--<head>-->
+<!--  <meta charset="UTF-8">-->
+<!--  <title>Flower Management Web Application</title>-->
+<!--  <link th:rel="stylesheet" th:href="@{static}">-->
+<!--  &lt;!&ndash; <link th:rel="stylesheet" th:href=""> &ndash;&gt;-->
+<!--  &lt;!&ndash; <script th:src="@{/js/bootstrap.min.js}"></script> &ndash;&gt;-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="container">-->
+
+<!--  <h1 class="text-green-500 text-5xl">Flower Management</h1>-->
+
+<!--  <p><span th:text="${greeting}"></span></p>-->
+<!--  <button class="btn">Button</button>-->
+
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--  <title>รายการออเดอร์</title>-->
+<!--</head>-->
+<!--<body>-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
@@ -8,13 +35,27 @@
   <!-- <script th:src="@{/js/bootstrap.min.js}"></script> -->
 </head>
 <body>
-<div class="container">
 
-  <h1 class="text-green-500 text-5xl">Flower Management</h1>
+<h1>รายการออเดอร์</h1>
 
-  <p><span th:text="${greeting}"></span></p>
-  <button class="btn">Button</button>
 
+<label for="order_id">หมายเลขออเดอร์:</label>
+<select id="order_id" name="order_id">
+  <option value="order1">OID0001</option>
+  <option value="order2">OID0002</option>
+  <!-- เพิ่มออเดอร์เพิ่มเติมตรงนี้ -->
+</select>
+
+<button id="confirmButton">ยืนยัน</button>
+
+<div id="summary">
+  <h2>สรุปรายการ</h2>
+  <p>หมายเลขออเดอร์: <span id="orderNumber"></span></p>
+  <p>ประเภทการสั่ง: <span id="orderType"></span></p>
+  <p>ชนิดดอกไม้: <span id="flowerType"></span></p>
+  <p>จำนวนดอกไม้: <span id="flowerCount"></span></p>
+  <p>ราคาสุทธิ: <span id="totalPrice"></span></p>
 </div>
-</body>
-</html>
+
+<script>
+</script>

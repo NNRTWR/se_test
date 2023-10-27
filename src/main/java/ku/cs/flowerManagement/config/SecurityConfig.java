@@ -33,6 +33,11 @@ public class SecurityConfig {
                         .requestMatchers(new AntPathRequestMatcher("/flower/create")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/flower/detail")).permitAll()
                         .requestMatchers(new AntPathRequestMatcher("/order/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/invoice/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/invoiceConfirm/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/invoiceCompleteButton/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/stock/**")).permitAll()
+                        .requestMatchers(new AntPathRequestMatcher("/allocate/**")).permitAll()
                         .anyRequest().authenticated()
                 );
         return http.build();

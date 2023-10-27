@@ -35,7 +35,8 @@ public class OrderController {
 
     @PostMapping("/order")
     public String createOrder(@ModelAttribute OrderFlowerRequest orderFlower, Model model) {
-        System.out.println(orderFlower);
+        System.out.println(orderFlower.getFlowerPrice());
+
         orderFlower.setFlowerPrice(orderFlower.getFlowerPrice() * orderFlower.getOrderQuantity());
         orderService.createOrder(orderFlower);
         return "redirect:/order";
@@ -50,4 +51,16 @@ public class OrderController {
         model.addAttribute("canceledOrder",orderService.getOrderById(id));
         return "order";
     }
+
+    @PutMapping("/confirmOrder/{id}")
+    public String confirmOrder(@PathVariable int id, Model model){
+        orderService.confirmOrderById(id);
+        model.addAttribute("order", new OrderFlowerRequest());
+        model.addAttribute("orders", orderService.getOrders());
+        model.addAttribute("options", flowerService.getFlowers());
+        model.addAttribute("confirmOrder", orderService.getOrderById(id));
+        return "order";
+    }
+
+
 }

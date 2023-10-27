@@ -1,9 +1,9 @@
 package ku.cs.flowerManagement.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import ku.cs.flowerManagement.common.StockStatus;
 import lombok.Data;
 
 import java.util.Date;
@@ -11,15 +11,22 @@ import java.util.UUID;
 
 @Data
 @Entity
+@Table(name = "Stock")
 public class Stock {
 
     @Id
-    @GeneratedValue
-    private UUID id;
+//    @GeneratedValue
+    private int SID; //รหัส Stock lot
 
-    private int SID; //รหัส Stock
-    private int FLID; //รหัสดอกไม้และ Lot
     private int total; //คงเหลือ
     private Date time; //วันที่
     private int quantity; //จำนวนดอกไม้
+//    private UUID id;
+    @Enumerated(EnumType.STRING)
+    private StockStatus stockStatus;
+
+    @ManyToOne
+    @JoinColumn(name = "FID")
+    @JsonIgnore
+    private Flower flower;
 }
